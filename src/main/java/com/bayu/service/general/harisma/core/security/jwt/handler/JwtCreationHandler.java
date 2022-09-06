@@ -1,14 +1,12 @@
 package com.bayu.service.general.harisma.core.security.jwt.handler;
 
-import io.jsonwebtoken.Jwts;
-
-import javax.enterprise.context.ApplicationScoped;
-
 import com.bayu.service.general.harisma.core.security.jwt.payload.BodyPayload;
 import com.bayu.service.general.harisma.core.security.jwt.payload.HeaderPayload;
 import com.bayu.service.general.harisma.core.security.jwt.payload.JwsBuilder;
 import com.bayu.service.general.harisma.core.security.jwt.payload.JwsPayload;
+import io.jsonwebtoken.Jwts;
 
+import javax.enterprise.context.ApplicationScoped;
 import java.security.Key;
 
 @ApplicationScoped

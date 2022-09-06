@@ -1,5 +1,7 @@
 package com.bayu.service.general.harisma.core.security.jwt.payload;
 
+import com.bayu.service.general.harisma.core.security.jwt.enums.JwtType;
+import com.bayu.service.general.harisma.core.util.FormatUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import lombok.*;
@@ -7,9 +9,6 @@ import lombok.*;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-
-import com.bayu.service.general.harisma.core.security.jwt.enums.JwtType;
-import com.bayu.service.general.harisma.core.util.FormatUtil;
 
 @Getter
 @EqualsAndHashCode

@@ -1,12 +1,11 @@
 package com.bayu.service.general.harisma.core.security.jwt.payload;
 
+import com.bayu.service.general.harisma.core.security.jwt.enums.JwtType;
+import com.bayu.service.general.harisma.core.util.CheckUtil;
 import lombok.Data;
 
 import java.util.Date;
 import java.util.Objects;
-
-import com.bayu.service.general.harisma.core.security.jwt.enums.JwtType;
-import com.bayu.service.general.harisma.core.util.CheckUtil;
 
 @Data
 public class JwsPayload {

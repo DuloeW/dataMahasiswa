@@ -1,14 +1,13 @@
 package com.bayu.service.general.harisma.core.security.jwt.payload;
 
+import com.bayu.service.general.harisma.core.util.CheckUtil;
+import com.bayu.service.general.harisma.exception.ExceptionCode;
+import com.bayu.service.general.harisma.exception.FormatException;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
-
-import com.bayu.service.general.harisma.core.util.CheckUtil;
-import com.bayu.service.general.harisma.exception.ExceptionCode;
-import com.bayu.service.general.harisma.exception.FormatException;
 
 @Data
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

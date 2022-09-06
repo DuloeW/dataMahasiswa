@@ -1,11 +1,10 @@
 package com.bayu.service.general.harisma.core.security.jwt.key;
 
+import com.bayu.service.general.harisma.core.rest.client.PublicKeyClient;
+import com.bayu.service.general.harisma.exception.PublicKeyBlacklistException;
 import io.quarkus.runtime.StartupEvent;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 import org.jboss.logging.Logger;
-
-import com.bayu.service.general.harisma.core.rest.client.PublicKeyClient;
-import com.bayu.service.general.harisma.exception.PublicKeyBlacklistException;
 
 import javax.enterprise.event.Observes;
 import javax.inject.Inject;

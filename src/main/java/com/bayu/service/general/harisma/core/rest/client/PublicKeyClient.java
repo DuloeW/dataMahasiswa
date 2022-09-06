@@ -1,9 +1,8 @@
 package com.bayu.service.general.harisma.core.rest.client;
 
+import com.bayu.service.general.harisma.core.security.jwt.tool.PublicKeyWrap;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
-
-import com.bayu.service.general.harisma.core.security.jwt.tool.PublicKeyWrap;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

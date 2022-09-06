@@ -1,11 +1,10 @@
 package com.bayu.service.general.harisma.core.security.jwt.tool;
 
+import com.bayu.service.general.harisma.exception.ExceptionCode;
+import com.bayu.service.general.harisma.exception.FormatException;
 import lombok.Data;
 
 import java.time.temporal.ChronoUnit;
-
-import com.bayu.service.general.harisma.exception.ExceptionCode;
-import com.bayu.service.general.harisma.exception.FormatException;
 
 @Data
 public class JwtExpiredTime {

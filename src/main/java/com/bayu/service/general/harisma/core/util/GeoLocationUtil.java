@@ -1,9 +1,8 @@
 package com.bayu.service.general.harisma.core.util;
 
+import com.bayu.service.general.harisma.exception.FormatException;
 import lombok.Data;
 import org.apache.commons.lang3.math.NumberUtils;
-
-import com.bayu.service.general.harisma.exception.FormatException;
 
 /**
  * Utility format geoLocation.
