@@ -1,6 +1,7 @@
 package com.bayu.service.general.harisma.model.body;
 
 import static com.bayu.service.general.harisma.core.util.ManipulateUtil.changeItOrNot;
+
 import com.bayu.service.general.harisma.entity.DosenTable;
 
 import lombok.Data;

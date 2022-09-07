@@ -1,13 +1,18 @@
 package com.bayu.service.general.harisma.entity;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
 @Entity
 @Table(name = "jadwal")
-public class JadwalTable {
+public class JadwalTable extends PanacheEntityBase{
     
     @Id
 
@@ -19,5 +24,13 @@ public class JadwalTable {
 
     @Column(name = "ruangan")
     public String ruangan;
+
+    public static Optional<JadwalTable> findById(long id) {
+        return find("id = ?1", id).firstResultOptional();
+    }
+
+    public static List<JadwalTable> getAllData() {
+        return JadwalTable.listAll();
+    }
     
 }

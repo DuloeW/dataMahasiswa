@@ -21,7 +21,7 @@ public class DosenTable extends PanacheEntityBase{
     @Column(name = "no_telp")
     public String noTelp;
 
-    @Column(name = "alamat_dosen")
+    @Column(name = "alamat")
     public String alamat;
 
     public static Optional<DosenTable> findById(long id) {
