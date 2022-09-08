@@ -36,6 +36,6 @@ public class MahasiswaTable extends PanacheEntityBase{
     }
 
     public static List<MahasiswaTable> getAllData() {
-        return JurusanTable.listAll();
+        return MahasiswaTable.listAll();
     }
 }

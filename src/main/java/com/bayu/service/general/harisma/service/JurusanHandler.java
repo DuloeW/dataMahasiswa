@@ -44,6 +44,7 @@ public class JurusanHandler {
         var jurusanTable = new JurusanTable();
         jurusanTable.idJurusan = body.getIdJurusan();
         jurusanTable.namaJurusan = body.getNamaJurusan();
+        jurusanTable.persist();
         return jurusanTable;
     }
 

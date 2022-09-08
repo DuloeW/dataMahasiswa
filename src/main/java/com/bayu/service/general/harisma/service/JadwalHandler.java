@@ -45,6 +45,7 @@ public class JadwalHandler {
         jadwalTable.idJadwal = body.getIdJadwal();
         jadwalTable.tanggal = body.getTanggal();
         jadwalTable.ruangan = body.getRuangan();
+        jadwalTable.persist();
         return jadwalTable;
     }
 

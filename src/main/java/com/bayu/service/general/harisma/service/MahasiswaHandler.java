@@ -47,6 +47,7 @@ public class MahasiswaHandler {
         mahasiswaTable.jenisKelami = body.getJenisKelamin();
         mahasiswaTable.noTelp = body.getNoTelp();
         mahasiswaTable.alamat = body.getAlamat();
+        mahasiswaTable.persist();
         return mahasiswaTable;
     }
 
