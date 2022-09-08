@@ -31,11 +31,11 @@ public class MahasiswaTable extends PanacheEntityBase{
     @Column(name = "alamat")
     public String alamat;
 
-    public static Optional<JurusanTable> findById(long id) {
+    public static Optional<MahasiswaTable> findById(long id) {
         return find("id = ?1", id).firstResultOptional();
     }
 
-    public static List<JurusanTable> getAllData() {
+    public static List<MahasiswaTable> getAllData() {
         return JurusanTable.listAll();
     }
 }

@@ -15,14 +15,14 @@ public class MahasiswaHandler {
     public List<MahasiswaBody> getMahasiswa(long id) {
         return MahasiswaTable.findById(id)
                 .stream()
-                .map(MahasiswaBody::froMahasiswaTable)
+                .map(MahasiswaBody::fromMahasiswaTable)
                 .collect(Collectors.toList());
     }
 
     public List<MahasiswaBody> getAllMahasiswaTable() {
         return MahasiswaTable.getAllData()
                 .stream()
-                .map(MahasiswaBody::froMahasiswaTable)
+                .map(MahasiswaBody::fromMahasiswaTable)
                 .collect(Collectors.toList());
     }
 
@@ -37,7 +37,7 @@ public class MahasiswaHandler {
 
     public MahasiswaBody createMahasiswaTable(MahasiswaBody body) {
         var mahasiswaTable = saveNewMahasiswaTable(body);
-        return MahasiswaBody.froMahasiswaTable(mahasiswaTable);
+        return MahasiswaBody.fromMahasiswaTable(mahasiswaTable);
     }
 
     public MahasiswaTable saveNewMahasiswaTable(MahasiswaBody body) {
@@ -50,7 +50,8 @@ public class MahasiswaHandler {
         return mahasiswaTable;
     }
 
-
-
+    public void deleteMahasiswa(long id) {
+        MahasiswaTable.deleteById(id);
+    }
 
 }

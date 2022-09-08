@@ -1,0 +1,3 @@
+belum mau PUB di semua controller
+create jadwal,jurusan,mahasiswa mau dipostman tapi gak masuk database
+di class mahasiswa controller ada error di get saat di postman

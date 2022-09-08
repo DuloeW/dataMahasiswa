@@ -46,4 +46,8 @@ public class JurusanHandler {
         jurusanTable.namaJurusan = body.getNamaJurusan();
         return jurusanTable;
     }
+
+    public void deleteJurusan(long id) {
+        JurusanTable.deleteById(id);
+    }
 }

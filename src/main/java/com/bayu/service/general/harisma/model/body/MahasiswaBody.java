@@ -13,7 +13,7 @@ public class MahasiswaBody {
     private String noTelp;
     private String alamat;
 
-    public static MahasiswaBody froMahasiswaTable(MahasiswaTable ent) {
+    public static MahasiswaBody fromMahasiswaTable(MahasiswaTable ent) {
         var output = new MahasiswaBody();
         output.setIdMahasiswa(ent.idMahasiswa);
         output.setNamaMahasiswa(ent.namaMahasiswa);

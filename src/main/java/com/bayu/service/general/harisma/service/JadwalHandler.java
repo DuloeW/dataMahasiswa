@@ -47,4 +47,8 @@ public class JadwalHandler {
         jadwalTable.ruangan = body.getRuangan();
         return jadwalTable;
     }
+
+    public void deleteJadwal(long id) {
+        JadwalTable.deleteById(id);
+    }
 }

@@ -26,18 +26,18 @@ public class DosenHandler {
                 .collect(Collectors.toList());
     }
 
+    public DosenBody createDosenTable(DosenBody body) {
+        var dosenTable = saveNewDosenTable(body);
+        return DosenBody.fromDosenTable(dosenTable);
+    }
+
     public DosenTable updateDosenTable(DosenBody body) {
         DosenTable dosen = DosenTable.findById(body.getIdDosen());
         if(dosen == null) {
             throw new DataNotFoundException(ExceptionCode.GROUP_NOT_FOUND, "Dosen not found");
         }
-        body.updateDosen(dosen);
+        body.updateDosen(dosen); 
         return dosen;
-    }
-
-    public DosenBody createDosenTable(DosenBody body) {
-        var dosenTable = saveNewDosenTable(body);
-        return DosenBody.fromDosenTable(dosenTable);
     }
 
     public DosenTable saveNewDosenTable(DosenBody body) {
@@ -48,5 +48,9 @@ public class DosenHandler {
         dosenTable.alamat = body.getAlamat();
         dosenTable.persist();
         return dosenTable;
+    }
+
+    public void deleteDosen(long id) {
+        DosenTable.deleteById(id);
     }
 }

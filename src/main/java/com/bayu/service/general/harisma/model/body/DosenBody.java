@@ -23,6 +23,7 @@ public class DosenBody {
     }
 
     public DosenTable updateDosen(DosenTable dosen) {
+        dosen.id = changeItOrNot(idDosen, dosen.id);
         dosen.namaDosen = changeItOrNot(namaDosen, dosen.namaDosen);
         dosen.noTelp = changeItOrNot(noTelp, dosen.noTelp);
         dosen.alamat = changeItOrNot(alamat, dosen.alamat);
