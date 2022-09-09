@@ -40,11 +40,11 @@ public class JurusanHandler {
     }
 
     public JurusanBody createJurusanTable(JurusanBody body) {
-        var jurusanTable = saveNewjJurusanTable(body);
+        var jurusanTable = saveNewJurusanTable(body);
         return JurusanBody.fromJurusanTable(jurusanTable);
     } 
 
-    public JurusanTable saveNewjJurusanTable(JurusanBody body) {
+    public JurusanTable saveNewJurusanTable(JurusanBody body) {
         var jurusanTable = new JurusanTable();
         jurusanTable.idJurusan = body.getIdJurusan();
         jurusanTable.namaJurusan = body.getNamaJurusan();

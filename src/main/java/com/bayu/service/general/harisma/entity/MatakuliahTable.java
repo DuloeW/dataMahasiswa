@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,16 +16,18 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 public class MatakuliahTable extends PanacheEntityBase {
     
     @Id
-
+    @GeneratedValue(generator = "dimata_id_gen")
     @Column(name = "id_matakuliah")
     public Long idMatakuliah;
 
-    
     @Column(name = "nama_matakuliah")
     public String namaMatakuliah;
     
     @Column(name = "sks")
-    public Integer sks;
+    public Long sks;
+
+    @Column(name = "id_dosen")
+    public Long idDosen;
 
 
     public static Optional<MatakuliahTable> findById(long id) {

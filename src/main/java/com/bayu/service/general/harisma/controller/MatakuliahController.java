@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 
 import com.bayu.service.general.harisma.entity.MatakuliahTable;
 import com.bayu.service.general.harisma.model.body.MatakuliahBody;
+import com.bayu.service.general.harisma.model.form.MatakuliahAndDosenFrom;
 import com.bayu.service.general.harisma.service.MatakuliahHandler;
 
 @Path("api/v1/matakuliah")
@@ -45,6 +46,14 @@ public class MatakuliahController {
     @Transactional
     public MatakuliahTable updateMatkul(MatakuliahBody body) {
         return matakuliahHandler.updateMatkulTable(body);
+    }
+
+    //create with dosen
+    @POST
+    @Path("/create/with-dosen")
+    @Transactional
+    public MatakuliahAndDosenFrom createMatakuliahAndDosen(MatakuliahAndDosenFrom from) {
+        return matakuliahHandler.createMatakuliahAndDosen(from);
     }
 
     //Create

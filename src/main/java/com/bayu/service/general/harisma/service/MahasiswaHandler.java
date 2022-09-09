@@ -59,7 +59,7 @@ public class MahasiswaHandler {
     public MahasiswaAndJurusanForm createMahasiswaAndJurusan(MahasiswaAndJurusanForm form) {
         return Optional.of(form)
             .map(f -> {
-                var jurusan = jurusanHandler.saveNewjJurusanTable(f.getJurusan());
+                var jurusan = jurusanHandler.saveNewJurusanTable(f.getJurusan());
                 f.getMahasiswa().setIdJurusan(jurusan.idJurusan);
                 return new MahasiswaAndJurusanTupple(saveNewMahasiswaTable(f.getMahasiswa()), jurusan);
             })

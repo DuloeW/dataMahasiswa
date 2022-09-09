@@ -9,13 +9,15 @@ import lombok.Data;
 public class MatakuliahBody {
     private Long idMatakuliah;
     private String namaMatakuliah;
-    private Integer sks;
+    private Long sks;
+    private Long idDosen;
 
     public static MatakuliahBody fromMatakuliahTable(MatakuliahTable ent) {
         var output =  new MatakuliahBody();
         output.setIdMatakuliah(ent.idMatakuliah);
         output.setNamaMatakuliah(ent.namaMatakuliah);
         output.setSks(ent.sks);
+        output.setIdDosen(ent.idDosen);
         return output;
     }
 
