@@ -1,6 +1,6 @@
 @GenericGenerator(
     name = "dimata_id_gen",
-    strategy = "com.dimata.service.general.harisma.core.id.IdConfig"
+    strategy = "com.bayu.service.general.harisma.core.id.IdConfig"
 )
 package com.bayu.service.general.harisma.core;
 

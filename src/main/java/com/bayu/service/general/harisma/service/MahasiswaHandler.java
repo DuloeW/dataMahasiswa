@@ -1,20 +1,31 @@
 package com.bayu.service.general.harisma.service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 
+import com.bayu.service.general.harisma.entity.JurusanTable;
 import com.bayu.service.general.harisma.entity.MahasiswaTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
 import com.bayu.service.general.harisma.exception.ExceptionCode;
+import com.bayu.service.general.harisma.exception.FormatException;
 import com.bayu.service.general.harisma.model.body.JurusanBody;
 import com.bayu.service.general.harisma.model.body.MahasiswaBody;
+import com.bayu.service.general.harisma.model.form.MahasiswaAndJurusanForm;
 
 @ApplicationScoped
 public class MahasiswaHandler {
+
+    @Inject
+    JurusanHandler jurusanHandler;
+
+    private record MahasiswaAndJurusanTupple(MahasiswaTable mahasiswa, JurusanTable jurusan) {}
+
     public List<MahasiswaBody> getMahasiswa(long id) {
         return MahasiswaTable.findById(id)
                 .stream()
@@ -40,11 +51,25 @@ public class MahasiswaHandler {
         return mahasiswa;
     }
 
-    public MahasiswaBody createMahasiswaTable(MahasiswaBody body, JurusanBody judBod) {
-        JurusanHandler jurusan = new JurusanHandler();
-        var jurusanTable = jurusan.saveNewjJurusanTable(judBod);
+    public MahasiswaBody createMahasiswaTable(MahasiswaBody body) {
         var mahasiswaTable = saveNewMahasiswaTable(body);
         return MahasiswaBody.fromMahasiswaTable(mahasiswaTable);
+    }
+
+    public MahasiswaAndJurusanForm createMahasiswaAndJurusan(MahasiswaAndJurusanForm form) {
+        return Optional.of(form)
+            .map(f -> {
+                var jurusan = jurusanHandler.saveNewjJurusanTable(f.getJurusan());
+                f.getMahasiswa().setIdJurusan(jurusan.idJurusan);
+                return new MahasiswaAndJurusanTupple(saveNewMahasiswaTable(f.getMahasiswa()), jurusan);
+            })
+            .map(f -> {
+                MahasiswaAndJurusanForm data = new MahasiswaAndJurusanForm();
+                data.setJurusan(JurusanBody.fromJurusanTable(f.jurusan));
+                data.setMahasiswa(MahasiswaBody.fromMahasiswaTable(f.mahasiswa));
+                return data;
+            })
+            .orElseThrow(() -> new FormatException(ExceptionCode.F_NV));
     }
 
     public MahasiswaTable saveNewMahasiswaTable(MahasiswaBody body) {
