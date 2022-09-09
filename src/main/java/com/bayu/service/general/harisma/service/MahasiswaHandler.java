@@ -10,6 +10,7 @@ import javax.ws.rs.Path;
 import com.bayu.service.general.harisma.entity.MahasiswaTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
 import com.bayu.service.general.harisma.exception.ExceptionCode;
+import com.bayu.service.general.harisma.model.body.JurusanBody;
 import com.bayu.service.general.harisma.model.body.MahasiswaBody;
 
 @ApplicationScoped
@@ -39,7 +40,9 @@ public class MahasiswaHandler {
         return mahasiswa;
     }
 
-    public MahasiswaBody createMahasiswaTable(MahasiswaBody body) {
+    public MahasiswaBody createMahasiswaTable(MahasiswaBody body, JurusanBody judBod) {
+        JurusanHandler jurusan = new JurusanHandler();
+        var jurusanTable = jurusan.saveNewjJurusanTable(judBod);
         var mahasiswaTable = saveNewMahasiswaTable(body);
         return MahasiswaBody.fromMahasiswaTable(mahasiswaTable);
     }
@@ -51,6 +54,7 @@ public class MahasiswaHandler {
         mahasiswaTable.jenisKelamin = body.getJenisKelamin();
         mahasiswaTable.noTelp = body.getNoTelp();
         mahasiswaTable.alamat = body.getAlamat();
+        mahasiswaTable.idJurusan = body.getIdJurusan();
         mahasiswaTable.persist();
         return mahasiswaTable;
     }

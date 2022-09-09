@@ -31,6 +31,9 @@ public class MahasiswaTable extends PanacheEntityBase{
     @Column(name = "alamat")
     public String alamat;
 
+    @Column(name = "id_jurusan")
+    public Long idJurusan;
+
     public static Optional<MahasiswaTable> findById(long id) {
         return find("id = ?1", id).firstResultOptional();
     }

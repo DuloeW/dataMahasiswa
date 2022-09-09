@@ -1,6 +1,7 @@
 package com.bayu.service.general.harisma.model.body;
 
 import static com.bayu.service.general.harisma.core.util.ManipulateUtil.changeItOrNot;
+
 import com.bayu.service.general.harisma.entity.MahasiswaTable;
 
 import lombok.Data;
@@ -12,6 +13,8 @@ public class MahasiswaBody {
     private char jenisKelamin;
     private String noTelp;
     private String alamat;
+    private Long idJurusan;
+
 
     public static MahasiswaBody fromMahasiswaTable(MahasiswaTable ent) {
         var output = new MahasiswaBody();
@@ -19,6 +22,7 @@ public class MahasiswaBody {
         output.setNamaMahasiswa(ent.namaMahasiswa);
         output.setNoTelp(ent.noTelp);
         output.setAlamat(ent.alamat);
+        output.setIdJurusan(ent.idJurusan);
         return output;
     }
 

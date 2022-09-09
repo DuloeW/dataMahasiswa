@@ -15,6 +15,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import com.bayu.service.general.harisma.entity.MahasiswaTable;
+import com.bayu.service.general.harisma.model.body.JurusanBody;
 import com.bayu.service.general.harisma.model.body.MahasiswaBody;
 import com.bayu.service.general.harisma.service.MahasiswaHandler;
 
@@ -51,8 +52,8 @@ public class MahasiswaController {
     @POST
     @Path("/create")
     @Transactional
-    public MahasiswaBody createMahasiswa(MahasiswaBody body) {
-        return mahasiswaHandler.createMahasiswaTable(body);
+    public MahasiswaBody createMahasiswa(MahasiswaBody body, JurusanBody juBod) {
+        return mahasiswaHandler.createMahasiswaTable(body, juBod);
     }
 
     //Delete
