@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 
 import com.bayu.service.general.harisma.entity.MatakuliahTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
@@ -26,6 +28,8 @@ public class MatakuliahHandler {
                 .collect(Collectors.toList());
     }
 
+    @PUT
+    @Path("/update/{id}")
     public MatakuliahTable updateMatkulTable(MatakuliahBody body) {
         MatakuliahTable matkul = MatakuliahTable.findById(body.getIdMatakuliah());
         if(matkul == null) {

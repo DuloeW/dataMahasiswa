@@ -14,8 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.jboss.resteasy.annotations.jaxrs.QueryParam;
-
 import com.bayu.service.general.harisma.entity.MahasiswaTable;
 import com.bayu.service.general.harisma.model.body.MahasiswaBody;
 import com.bayu.service.general.harisma.service.MahasiswaHandler;
@@ -27,12 +25,14 @@ public class MahasiswaController {
     @Inject
     MahasiswaHandler mahasiswaHandler;
 
+    //Read one
     @GET
-    public List<MahasiswaBody> getMahasiswa(@QueryParam long id) {
+    @Path("/get/{id}")
+    public List<MahasiswaBody> getMahasiswa(@PathParam("id") long id) {
         return mahasiswaHandler.getMahasiswa(id);
     }
 
-    //Read
+    //Read all
     @GET
     @Path("/get-all")
     public List<MahasiswaBody> getAllMahasiswa() {
@@ -41,7 +41,7 @@ public class MahasiswaController {
 
     //Uploud
     @PUT
-    @Path("/update")
+    @Path("/update/{id}")
     @Transactional
     public MahasiswaTable updateMahasiswa(MahasiswaBody body) {
         return mahasiswaHandler.updateMahasiswaTable(body);

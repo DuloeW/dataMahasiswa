@@ -23,7 +23,7 @@ public class MahasiswaTable extends PanacheEntityBase{
     public String namaMahasiswa;
 
     @Column(name = "jenis_kelamin")
-    public String jenisKelami;
+    public char jenisKelamin;
 
     @Column(name = "no_telp")
     public String noTelp;

@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 
 import com.bayu.service.general.harisma.entity.DosenTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
@@ -31,7 +34,9 @@ public class DosenHandler {
         return DosenBody.fromDosenTable(dosenTable);
     }
 
-    public DosenTable updateDosenTable(DosenBody body) {
+    @PUT
+    @Path("/update/{id}")
+    public DosenTable updateDosenTable(@PathParam("id") DosenBody body) {
         DosenTable dosen = DosenTable.findById(body.getIdDosen());
         if(dosen == null) {
             throw new DataNotFoundException(ExceptionCode.GROUP_NOT_FOUND, "Dosen not found");

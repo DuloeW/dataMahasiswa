@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 
 import com.bayu.service.general.harisma.entity.MahasiswaTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
@@ -26,6 +28,8 @@ public class MahasiswaHandler {
                 .collect(Collectors.toList());
     }
 
+    @PUT
+    @Path("/update/{id}")
     public MahasiswaTable updateMahasiswaTable(MahasiswaBody body) {
         MahasiswaTable mahasiswa = MahasiswaTable.findById(body.getIdMahasiswa());
         if(mahasiswa == null) {
@@ -44,7 +48,7 @@ public class MahasiswaHandler {
         var mahasiswaTable = new MahasiswaTable();
         mahasiswaTable.idMahasiswa = body.getIdMahasiswa();
         mahasiswaTable.namaMahasiswa = body.getNamaMahasiswa();
-        mahasiswaTable.jenisKelami = body.getJenisKelamin();
+        mahasiswaTable.jenisKelamin = body.getJenisKelamin();
         mahasiswaTable.noTelp = body.getNoTelp();
         mahasiswaTable.alamat = body.getAlamat();
         mahasiswaTable.persist();

@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
 
 import com.bayu.service.general.harisma.entity.JadwalTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
@@ -26,6 +28,8 @@ public class JadwalHandler {
                 .collect(Collectors.toList());
     }
 
+    @PUT
+    @Path("/update/{id}")
     public JadwalTable updateJadwalTable(JadwalBody body) {
         JadwalTable jadwal = JadwalTable.findById(body.getIdJadwal());
         if(jadwal == null) {

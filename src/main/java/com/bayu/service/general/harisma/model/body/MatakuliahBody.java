@@ -7,22 +7,22 @@ import lombok.Data;
 
 @Data
 public class MatakuliahBody {
-    private Long sks;
-    private String namaMatakuliah;
     private Long idMatakuliah;
+    private String namaMatakuliah;
+    private Integer sks;
 
     public static MatakuliahBody fromMatakuliahTable(MatakuliahTable ent) {
         var output =  new MatakuliahBody();
-        output.setSks(ent.sks);
-        output.setNamaMatakuliah(ent.namaMatakuliah);
         output.setIdMatakuliah(ent.idMatakuliah);
+        output.setNamaMatakuliah(ent.namaMatakuliah);
+        output.setSks(ent.sks);
         return output;
     }
 
     public MatakuliahTable updateMatkul(MatakuliahTable matakuliah) {
-       matakuliah.sks = changeItOrNot(sks, matakuliah.sks);
-       matakuliah.namaMatakuliah = changeItOrNot(namaMatakuliah, matakuliah.namaMatakuliah);
-       matakuliah.idMatakuliah = changeItOrNot(idMatakuliah, matakuliah.idMatakuliah);
+        matakuliah.idMatakuliah = changeItOrNot(idMatakuliah, matakuliah.idMatakuliah);
+        matakuliah.namaMatakuliah = changeItOrNot(namaMatakuliah, matakuliah.namaMatakuliah);
+        matakuliah.sks = changeItOrNot(sks, matakuliah.sks);
        return matakuliah;
     }
 }

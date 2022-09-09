@@ -14,8 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.jboss.resteasy.annotations.jaxrs.QueryParam;
-
 import com.bayu.service.general.harisma.entity.DosenTable;
 import com.bayu.service.general.harisma.model.body.DosenBody;
 import com.bayu.service.general.harisma.service.DosenHandler;
@@ -27,12 +25,14 @@ public class DosenController {
     @Inject
     DosenHandler dosenHandler;
 
+    //Read one
     @GET
-    public List<DosenBody> getDosen(@QueryParam long id) {
+    @Path("/get/{id}")
+    public List<DosenBody> getDosen(@PathParam("id") long id) {
         return dosenHandler.getDosen(id);
     }
 
-    //Read
+    //Read all
     @GET
     @Path("/get-all")
     public List<DosenBody> getAllDosen() {
@@ -42,15 +42,16 @@ public class DosenController {
     //Create
     @POST
     @Path("/create")
+    @Transactional
     public DosenBody createDosen(DosenBody body) {
         return dosenHandler.createDosenTable(body);
     } 
 
     //Uploud
     @PUT
-    @Path("/uploud/{id}")
+    @Path("/update/{id}")
     @Transactional
-    public DosenTable updatDosen(@PathParam("id") long id, DosenBody body) {
+    public DosenTable updatDosen(DosenBody body) {
         return dosenHandler.updateDosenTable(body);
     }
 

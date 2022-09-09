@@ -14,8 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.jboss.resteasy.annotations.jaxrs.QueryParam;
-
 import com.bayu.service.general.harisma.entity.MatakuliahTable;
 import com.bayu.service.general.harisma.model.body.MatakuliahBody;
 import com.bayu.service.general.harisma.service.MatakuliahHandler;
@@ -27,12 +25,14 @@ public class MatakuliahController {
     @Inject
     MatakuliahHandler matakuliahHandler;
 
+    //Read one
     @GET
-    public List<MatakuliahBody> getMatkul(@QueryParam long id) {
+    @Path("/get/{id}")
+    public List<MatakuliahBody> getMatkul(@PathParam("id") long id) {
         return matakuliahHandler.getMatakuliah(id);
     }
     
-    //Read
+    //Read all
     @GET
     @Path("/get-all")
     public List<MatakuliahBody> getAllMatkul() {
@@ -41,7 +41,7 @@ public class MatakuliahController {
 
     //Uploud
     @PUT
-    @Path("/update")
+    @Path("/update/{id}")
     @Transactional
     public MatakuliahTable updateMatkul(MatakuliahBody body) {
         return matakuliahHandler.updateMatkulTable(body);

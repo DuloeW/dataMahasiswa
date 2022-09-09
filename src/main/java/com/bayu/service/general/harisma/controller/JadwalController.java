@@ -14,8 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.jboss.resteasy.annotations.jaxrs.QueryParam;
-
 import com.bayu.service.general.harisma.entity.JadwalTable;
 import com.bayu.service.general.harisma.model.body.JadwalBody;
 import com.bayu.service.general.harisma.service.JadwalHandler;
@@ -27,12 +25,14 @@ public class JadwalController {
     @Inject
     JadwalHandler jadwalHandler;
 
+    //Read one
     @GET
-    public List<JadwalBody> getJadwal(@QueryParam long id) {
+    @Path("/get/{id}")
+    public List<JadwalBody> getJadwal(@PathParam("id") long id) {
         return jadwalHandler.getJadwal(id);
     }
 
-    //Read
+    //Read all
     @GET
     @Path("/get-all")
     public List<JadwalBody> getAllDosen() {
@@ -49,7 +49,7 @@ public class JadwalController {
     
     //Uploud
     @PUT
-    @Path("/update")
+    @Path("/update/{id}")
     @Transactional
     public JadwalTable updateJadwal(JadwalBody body) {
         return jadwalHandler.updateJadwalTable(body);

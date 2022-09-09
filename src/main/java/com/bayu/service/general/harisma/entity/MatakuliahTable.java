@@ -16,14 +16,15 @@ public class MatakuliahTable extends PanacheEntityBase {
     
     @Id
 
-    @Column(name = "sks")
-    public Long sks;
-
-    @Column(name = "nama_matakuliah")
-    public String namaMatakuliah;
-
     @Column(name = "id_matakuliah")
     public Long idMatakuliah;
+
+    
+    @Column(name = "nama_matakuliah")
+    public String namaMatakuliah;
+    
+    @Column(name = "sks")
+    public Integer sks;
 
 
     public static Optional<MatakuliahTable> findById(long id) {

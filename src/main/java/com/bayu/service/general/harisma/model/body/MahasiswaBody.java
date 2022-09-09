@@ -9,7 +9,7 @@ import lombok.Data;
 public class MahasiswaBody {
     private Long idMahasiswa;
     private String namaMahasiswa;
-    private String jenisKelamin;
+    private char jenisKelamin;
     private String noTelp;
     private String alamat;
 

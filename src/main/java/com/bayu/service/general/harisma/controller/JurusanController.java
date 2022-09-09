@@ -14,8 +14,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.jboss.resteasy.annotations.jaxrs.QueryParam;
-
 import com.bayu.service.general.harisma.entity.JurusanTable;
 import com.bayu.service.general.harisma.model.body.JurusanBody;
 import com.bayu.service.general.harisma.service.JurusanHandler;
@@ -27,12 +25,14 @@ public class JurusanController {
     @Inject
     JurusanHandler jurusanHandler;
 
+    //Read one
     @GET
-    public List<JurusanBody> getJadwal(@QueryParam long id) {
+    @Path("/get/{id}")
+    public List<JurusanBody> getJadwal(@PathParam("id") long id) {
         return jurusanHandler.getJurusan(id);
     }
 
-    //Read
+    //Read all
     @GET
     @Path("/get-all")
     public List<JurusanBody> getAllJurusan() {
@@ -41,7 +41,7 @@ public class JurusanController {
 
     //Uploud
     @PUT
-    @Path("/update")
+    @Path("/update/{id}")
     @Transactional 
     public JurusanTable updadtejurusan(JurusanBody body) {
         return jurusanHandler.updateJadwalTable(body);
