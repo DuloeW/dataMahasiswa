@@ -82,9 +82,9 @@ public class MatakuliahHandler {
 
     public MatakuliahTable saveNewMatkulTable(MatakuliahBody body) {
         var matkulTable = new MatakuliahTable();
-        matkulTable.sks = body.getSks();
-        matkulTable.namaMatakuliah = body.getNamaMatakuliah();
         matkulTable.idMatakuliah = body.getIdMatakuliah();
+        matkulTable.namaMatakuliah = body.getNamaMatakuliah();
+        matkulTable.sks = body.getSks();
         matkulTable.idDosen = body.getIdDosen();
         matkulTable.idJadwal = body.getIdJadwal();
         matkulTable.persist();

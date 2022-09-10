@@ -48,14 +48,7 @@ public class MahasiswaController {
         return mahasiswaHandler.updateMahasiswaTable(body);
     }
 
-    //Create
-    @POST
-    @Path("/create")
-    @Transactional
-    public MahasiswaBody createMahasiswa(MahasiswaBody body) {
-        return mahasiswaHandler.createMahasiswaTable(body);
-    }
-
+    //create with jurusan
     @POST
     @Path("/create/with-jurusan")
     @Transactional

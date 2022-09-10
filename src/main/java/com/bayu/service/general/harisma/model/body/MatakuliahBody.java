@@ -1,6 +1,7 @@
 package com.bayu.service.general.harisma.model.body;
 
 import static com.bayu.service.general.harisma.core.util.ManipulateUtil.changeItOrNot;
+
 import com.bayu.service.general.harisma.entity.MatakuliahTable;
 
 import lombok.Data;
@@ -24,7 +25,6 @@ public class MatakuliahBody {
     }
 
     public MatakuliahTable updateMatkul(MatakuliahTable matakuliah) {
-        matakuliah.idMatakuliah = changeItOrNot(idMatakuliah, matakuliah.idMatakuliah);
         matakuliah.namaMatakuliah = changeItOrNot(namaMatakuliah, matakuliah.namaMatakuliah);
         matakuliah.sks = changeItOrNot(sks, matakuliah.sks);
        return matakuliah;

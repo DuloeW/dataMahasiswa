@@ -56,14 +56,6 @@ public class MatakuliahController {
         return matakuliahHandler.createMatakuliahAndDosen(from);
     }
 
-    //Create
-    @POST
-    @Path("/create")
-    @Transactional
-    public MatakuliahBody createMatkul(MatakuliahBody body) {
-        return matakuliahHandler.createMatkulTable(body);
-    }
-
     //Delete
     @DELETE
     @Path("/delete/{id}")

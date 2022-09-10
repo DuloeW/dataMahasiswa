@@ -11,11 +11,15 @@ import javax.ws.rs.Path;
 
 import com.bayu.service.general.harisma.entity.JurusanTable;
 import com.bayu.service.general.harisma.entity.MahasiswaTable;
+import com.bayu.service.general.harisma.entity.MatakuliahTable;
+import com.bayu.service.general.harisma.entity.RelasiMahaMatkulTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
 import com.bayu.service.general.harisma.exception.ExceptionCode;
 import com.bayu.service.general.harisma.exception.FormatException;
 import com.bayu.service.general.harisma.model.body.JurusanBody;
 import com.bayu.service.general.harisma.model.body.MahasiswaBody;
+import com.bayu.service.general.harisma.model.body.MatakuliahBody;
+import com.bayu.service.general.harisma.model.body.RelasiMahaMatkulBody;
 import com.bayu.service.general.harisma.model.form.MahasiswaAndJurusanForm;
 
 @ApplicationScoped
@@ -23,6 +27,9 @@ public class MahasiswaHandler {
 
     @Inject
     JurusanHandler jurusanHandler;
+
+    @Inject
+    RelasiMakulHandler relasiMakulHandler;
 
     private record MahasiswaAndJurusanTupple(MahasiswaTable mahasiswa, JurusanTable jurusan) {}
 
