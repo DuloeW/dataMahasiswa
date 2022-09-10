@@ -26,9 +26,6 @@ public class JadwalTable extends PanacheEntityBase{
     @Column(name = "ruangan")
     public String ruangan;
 
-    @Column(name = "id_matakuliah")
-    public Long idMatakuliah;
-    
     public static Optional<JadwalTable> findById(long id) {
         return find("id = ?1", id).firstResultOptional();
     }

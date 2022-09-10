@@ -11,10 +11,12 @@ import javax.ws.rs.Path;
 
 import com.bayu.service.general.harisma.entity.MatakuliahTable;
 import com.bayu.service.general.harisma.entity.DosenTable;
+import com.bayu.service.general.harisma.entity.JadwalTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
 import com.bayu.service.general.harisma.exception.ExceptionCode;
 import com.bayu.service.general.harisma.exception.FormatException;
 import com.bayu.service.general.harisma.model.body.DosenBody;
+import com.bayu.service.general.harisma.model.body.JadwalBody;
 import com.bayu.service.general.harisma.model.body.MatakuliahBody;
 import com.bayu.service.general.harisma.model.form.MatakuliahAndDosenFrom;
 
@@ -24,7 +26,10 @@ public class MatakuliahHandler {
     @Inject
     DosenHandler dosenHandler;
 
-    private record MatakuliahAndDosenTupple(MatakuliahTable matakuliah, DosenTable dosen) {}
+    @Inject
+    JadwalHandler jadwalHandler;
+
+    private record MatakuliahAndDosenTupple(MatakuliahTable matakuliah, DosenTable dosen, JadwalTable jadwal) {}
 
     public List<MatakuliahBody> getMatakuliah(long id) {
         return MatakuliahTable.findById(id)
@@ -55,12 +60,15 @@ public class MatakuliahHandler {
         return Optional.of(form)
             .map(f -> {
                 var dosen = dosenHandler.saveNewDosenTable(f.getDosen());
+                var jadwal = jadwalHandler.saveNewJadwalTable(f.getJadwal());
                 f.getMatakuliah().setIdDosen(dosen.id);
-                return new MatakuliahAndDosenTupple(saveNewMatkulTable(f.getMatakuliah()), dosen);
+                f.getMatakuliah().setIdJadwal(jadwal.idJadwal);
+                return new MatakuliahAndDosenTupple(saveNewMatkulTable(f.getMatakuliah()), dosen, jadwal);
             })
             .map(f -> {
                 MatakuliahAndDosenFrom data = new MatakuliahAndDosenFrom();
                 data.setDosen(DosenBody.fromDosenTable(f.dosen));
+                data.setJadwal(JadwalBody.fromJadwalTable(f.jadwal));
                 data.setMatakuliah(MatakuliahBody.fromMatakuliahTable(f.matakuliah));
                 return data;
             })
@@ -78,6 +86,7 @@ public class MatakuliahHandler {
         matkulTable.namaMatakuliah = body.getNamaMatakuliah();
         matkulTable.idMatakuliah = body.getIdMatakuliah();
         matkulTable.idDosen = body.getIdDosen();
+        matkulTable.idJadwal = body.getIdJadwal();
         matkulTable.persist();
         return matkulTable;
     }

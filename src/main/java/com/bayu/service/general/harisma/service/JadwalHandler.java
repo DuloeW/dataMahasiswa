@@ -11,7 +11,6 @@ import com.bayu.service.general.harisma.entity.JadwalTable;
 import com.bayu.service.general.harisma.exception.DataNotFoundException;
 import com.bayu.service.general.harisma.exception.ExceptionCode;
 import com.bayu.service.general.harisma.model.body.JadwalBody;
-
 @ApplicationScoped
 public class JadwalHandler {
     public List<JadwalBody> getJadwal(long id) {

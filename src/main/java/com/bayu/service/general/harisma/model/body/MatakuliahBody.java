@@ -11,6 +11,7 @@ public class MatakuliahBody {
     private String namaMatakuliah;
     private Long sks;
     private Long idDosen;
+    private Long idJadwal;
 
     public static MatakuliahBody fromMatakuliahTable(MatakuliahTable ent) {
         var output =  new MatakuliahBody();
@@ -18,6 +19,7 @@ public class MatakuliahBody {
         output.setNamaMatakuliah(ent.namaMatakuliah);
         output.setSks(ent.sks);
         output.setIdDosen(ent.idDosen);
+        output.setIdJadwal(ent.idJadwal);
         return output;
     }
 

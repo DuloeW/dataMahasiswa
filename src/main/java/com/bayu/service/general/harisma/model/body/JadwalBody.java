@@ -9,7 +9,7 @@ import lombok.Data;
 public class JadwalBody {
     private Long idJadwal;
     private String tanggal;
-    private String ruangan;
+    private String ruangan; 
 
     public static JadwalBody fromJadwalTable(JadwalTable ent) {
         var output = new JadwalBody();

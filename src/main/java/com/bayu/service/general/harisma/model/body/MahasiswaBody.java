@@ -10,7 +10,7 @@ import lombok.Data;
 public class MahasiswaBody {
     private Long idMahasiswa;
     private String namaMahasiswa;
-    private char jenisKelamin;
+    private String jenisKelamin;
     private String noTelp;
     private String alamat;
     private Long idJurusan;
@@ -20,6 +20,7 @@ public class MahasiswaBody {
         var output = new MahasiswaBody();
         output.setIdMahasiswa(ent.idMahasiswa);
         output.setNamaMahasiswa(ent.namaMahasiswa);
+        output.setJenisKelamin(ent.jenisKelamin);
         output.setNoTelp(ent.noTelp);
         output.setAlamat(ent.alamat);
         output.setIdJurusan(ent.idJurusan);
