@@ -10,8 +10,9 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 @Entity
 @Table(name = "dosen")
 public class DosenTable extends PanacheEntityBase{
-    @Id
 
+    @Id
+    @GeneratedValue(generator = "dimata_id_gen")
     @Column(name = "id_dosen")
     public Long id;
 

@@ -77,6 +77,7 @@ public class MatakuliahHandler {
         matkulTable.sks = body.getSks();
         matkulTable.namaMatakuliah = body.getNamaMatakuliah();
         matkulTable.idMatakuliah = body.getIdMatakuliah();
+        matkulTable.idDosen = body.getIdDosen();
         matkulTable.persist();
         return matkulTable;
     }
